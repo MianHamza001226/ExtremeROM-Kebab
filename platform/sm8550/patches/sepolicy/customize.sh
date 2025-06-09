@@ -6,7 +6,7 @@ APPLY_PATCH()
     local PATCH
     local OUT
 
-    cd "$WORK_DIR/system/system/system_ext/etc/selinux"
+    cd "$WORK_DIR/system_ext/etc/selinux"
     PATCH="$SRC_DIR/platform/sm8550/patches/sepolicy/$1"
     OUT="$(patch -p1 -s -t -N --dry-run < "$PATCH")" \
         || echo "$OUT" | grep -q "Skipping patch" || false
