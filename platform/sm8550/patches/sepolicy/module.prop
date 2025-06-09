@@ -1,0 +1,5 @@
+
+id=sepolicy
+name=SEPolicy Fix
+author=yagzie
+description=Add needed entries in order to boot the rom with RIL. (S25 Only)
