@@ -28,7 +28,4 @@
 	ignore = dirty
 [submodule "external/omcdecoder"]
 	path = external/omcdecoder
-	url = https://github.com/soulr344/OMCDecoder
-[submodule "external/external/omcdecoder"]
-	path = external/external/omcdecoder
 	url = https://github.com/soulr344/OMCDecoder.git
