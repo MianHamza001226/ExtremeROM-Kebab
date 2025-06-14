@@ -6,6 +6,9 @@ out/
 # WSL files
 *.Identifier
 
+#VSC files
+*.vs
+
 # Cert
 security/unica_ota.x509.pem
 security/unica_ota.pk8
