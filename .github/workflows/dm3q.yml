@@ -25,6 +25,13 @@ jobs:
     - name: Clone ExtremeROM repository
       run: git clone --recurse-submodules https://github.com/osrott61-gh/ExtremeROM.git
 
+    - name: Configure Git identity
+      run: |
+        git config --global user.email "Github-actions@users.noreply.github.com"
+        git config --global user.name "GitHub Actions"
+      working-directory: ExtremeROM
+
+
     - name: Set up build environment
       run: |
         cd ExtremeROM
