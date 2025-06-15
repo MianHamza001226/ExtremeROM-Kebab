@@ -85,6 +85,14 @@ if $SOURCE_HAS_QHD_DISPLAY; then
     fi
 fi
 
+if ! $TARGET_HAS_QHD_DISPLAY; then
+    echo "Applying multi resolution patches)"
+    ADD_TO_WORK_DIR "pa1qxxx" "system" "."
+    APPLY_PATCH "system/framework/framework.jar" "resolution/framework.jar/0001-Disable-dynamic-resolution-control.patch"
+    APPLY_PATCH "system/framework/gamemanager.jar" "resolution/gamemanager.jar/0001-Disable-dynamic-resolution-control.patch"
+    APPLY_PATCH "system/priv-app/SecSettings/SecSettings.apk" "resolution/SecSettings.apk/0001-Disable-dynamic-resolution-control.patch"
+fi
+
 if [[ "$(GET_FP_SENSOR_TYPE "$SOURCE_FP_SENSOR_CONFIG")" != "$(GET_FP_SENSOR_TYPE "$TARGET_FP_SENSOR_CONFIG")" ]]; then
     echo "Applying fingerprint sensor patches"
 
