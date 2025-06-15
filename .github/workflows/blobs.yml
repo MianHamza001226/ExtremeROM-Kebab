@@ -35,6 +35,8 @@ jobs:
             path: "prebuilts/samsung/r0qxxx"
           - module: "Galaxy S24 FE (r12sxxx)"
             path: "prebuilts/samsung/r12sxxx"
+          - module: "Galaxy S25 (pa1qxxx)
+            path: "prebuilts/samsung/pa1qxxx"
 
     steps:
       - name: Checkout repo
