@@ -21,7 +21,13 @@ jobs:
       run: |
         sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/hostedtoolcache
         df -h
-
+    
+    - name: Install dependencies
+      run: |
+        sudo apt update
+        sudo apt upgrade -y
+        sudo apt install -y attr ccache clang git golang libbrotli-dev libgtest-dev liblz4-dev libpcre2-dev libprotobuf-dev libunwind-dev libusb-1.0-0-dev libzstd-dev lld openjdk-11-jdk protobuf-compiler zip zipalign make cmake npm lz4 brotli patchelf curl xxd
+   
     - name: Clone ExtremeROM repository
       run: git clone --recurse-submodules https://github.com/osrott61-gh/ExtremeROM.git
 
