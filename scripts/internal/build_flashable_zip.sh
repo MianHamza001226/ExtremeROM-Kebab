@@ -56,7 +56,8 @@ PRINT_HEADER()
     echo -n 'ui_print("'
     echo -n "ExtremeROM $ROM_CODENAME $ROM_VERSION for $TARGET_NAME"
     echo    '");'
-    echo    'ui_print("ROM by @osrott61/@ExtremeXT @XDAforums");'
+    echo    'ui_print("ROM by @osrott61 @XDAforums");'
+    echo    'ui_print("Base by @ExtremeXT @XDAforums");'
     echo    'ui_print("Build system coded by salvo_giangri @XDAforums");'
     echo    'ui_print("****************************************");'
     echo -n 'ui_print("'
