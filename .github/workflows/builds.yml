@@ -58,6 +58,16 @@ jobs:
         with:
           node-version: 'latest'
 
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.9'
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install boto3
+
       - name: Build dependencies
         run: source ./buildenv.sh ${{ matrix.target }}
 
@@ -86,9 +96,12 @@ jobs:
           source ./buildenv.sh ${{ matrix.target }}
           ./scripts/make_rom.sh
 
-      - name: Upload to GoFile
-        run: |
-          ZIP_FILE=$(find out -maxdepth 1 -type f -name "*.zip" | head -n 1)
-          RESPONSE=$(curl -s -F "file=@$ZIP_FILE" -F "token=${{ secrets.GOFILE_TOKEN }}" -F "folderId=${{ secrets.GOFILE_FOLDER_ID }}" "https://upload-eu-par.gofile.io/uploadFile")
-          echo "Uploaded successfully! Download link:"
-          echo "$RESPONSE" | jq -r '.data.downloadPage'
+      - name: Upload to Cloudflare R2
+        env:
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+          R2_BUCKET_NAME: ${{ secrets.R2_BUCKET_NAME }}
+          FILE_PATH: $(find out -maxdepth 1 -type f -name "*.zip" | head -n 1)
+          OBJECT_KEY: ExtremeROM-${{ matrix.target }}-$(basename $(find out -maxdepth 1 -type f -name "*.zip" | head -n 1))
+        run: python .github/scripts/upload_r2.py
