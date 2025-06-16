@@ -1,17 +1,14 @@
-<h1 align="center">
-  <img loading="lazy" src="readme-res/banner.png"/>
-</h1>
 <p align="center">
-  <a href="https://github.com/ExtremeXT/ExtremeROM/blob/fifteen/LICENSE"><img loading="lazy" src="https://img.shields.io/github/license/ExtremeXT/ExtremeROM?style=for-the-badge&logo=github"/></a>
-  <a href="https://github.com/ExtremeXT/ExtremeROM/commits/fifteen"><img loading="lazy" src="https://img.shields.io/github/last-commit/ExtremeXT/ExtremeROM/fifteen?style=for-the-badge"/></a>
-  <a href="https://github.com/ExtremeXT/ExtremeROM/stargazers"><img loading="lazy" src="https://img.shields.io/github/stars/ExtremeXT/ExtremeROM?style=for-the-badge"/></a>
-  <a href="https://github.com/ExtremeXT/ExtremeROM/graphs/contributors"><img loading="lazy" src="https://img.shields.io/github/contributors/ExtremeXT/ExtremeROM?style=for-the-badge"/></a>
+  <a href="https://github.com/osrott61-gh/ExtremeROM-Kebab/blob/fifteen/LICENSE"><img loading="lazy" src="https://img.shields.io/github/license/osrott61-gh/ExtremeROM-Kebab?style=for-the-badge&logo=github"/></a>
+  <a href="https://github.com/osrott61-gh/ExtremeROM-Kebab/commits/fifteen"><img loading="lazy" src="https://img.shields.io/github/last-commit/osrott61-gh/ExtremeROM-Kebab/fifteen?style=for-the-badge"/></a>
+  <a href="https://github.com/osrott61-gh/ExtremeROM-Kebab/stargazers"><img loading="lazy" src="https://img.shields.io/github/stars/osrott61-gh/ExtremeROM-Kebab?style=for-the-badge"/></a>
+  <a href="https://github.com/osrott61-gh/ExtremeROM-Kebab/graphs/contributors"><img loading="lazy" src="https://img.shields.io/github/contributors/osrott61-gh/ExtremeROM-Kebab?style=for-the-badge"/></a>
 </p>
-<p align="center">ExtremeROM Nexus is a work-in-progress custom firmware for Samsung Galaxy devices.</p>
+<p align="center">ExtremeROM-Kebab is a work-in-progress custom firmware for Samsung Galaxy devices.</p>
 
 <p align="center">
   <a href="https://t.me/extremerom">💬 Telegram</a>
-  <a href="https://github.com/ExtremeXT/ExtremeROM/wiki">📖 Wiki</a>
+  
 </p>
 
 # What is ExtremeROM Nexus?
@@ -40,8 +37,6 @@ Any form of contribution, suggestions, bug report or feature request for the pro
 - Extra CSC features (Call recording, Network speed in status bar)
 - More that I can't remember right now and will have to be added in the future
 
-# Bugs
-See the <a href="https://github.com/ExtremeXT/ExtremeROM/issues">⚠ Issues</a> tab
 
 # Licensing
 This project is licensed under the terms of the [GNU General Public License v3.0](LICENSE). External dependencies might be distributed under a different license, such as:
@@ -73,6 +68,14 @@ This project is licensed under the terms of the [GNU General Public License v3.0
 
 # Credits
 A big thanks goes to the following for their invaluable contributions in no particular order (MORE INFO AND PEOPLE: TO BE WRITTEN)
+- **[ExtremeXT](https://github.com/ExtremeXT)** for the Base of this repo, and loads of help
+- **[Nguyen Long](https://github.com/LumiPlayground)** for help with camera
+- probatly more that i forgot
+
+
+
+
+Original ExtremeROM credits:
 - **[salvogiangri](https://github.com/salvogiangri)** for the UN1CA build system, OneUI patches, and general help and support while developing
 - **[Ocin4Ever](https://github.com/Ocin4Ever)** for a lot of help especially on smali, advice and emotional support :D
 - **[Igor](https://github.com/BotchedRPR)** for getting me into porting, teaching me the basics, and emotional support down the road
@@ -103,4 +106,4 @@ Original UN1CA credits:
 - *All the UN1CA project contributors and testers ❤️*
 
 # Stargazers over time
-[![Stargazers over time](https://starchart.cc/ExtremeXT/ExtremeROM.svg)](https://starchart.cc/ExtremeXT/ExtremeROM)
+[![Stargazers over time](https://starchart.cc/osrott61-gh/ExtremeROM-Kebab.svg)](https://starchart.cc/osrott61-gh/ExtremeROM-Kebab)
