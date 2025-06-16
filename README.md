@@ -7,7 +7,7 @@
 <p align="center">ExtremeROM-Kebab is a work-in-progress custom firmware for Samsung Galaxy devices.</p>
 
 <p align="center">
-  <a href="https://t.me/extremerom">💬 Telegram</a>
+  <a href="https://t.me/extremerom_kebab">💬 Telegram</a>
   
 </p>
 
