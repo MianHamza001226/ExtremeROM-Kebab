@@ -7,7 +7,7 @@ ACCESS_KEY_ID = os.getenv("R2_ACCESS_KEY_ID")
 SECRET_ACCESS_KEY = os.getenv("R2_SECRET_ACCESS_KEY")
 ACCOUNT_ID = os.getenv("R2_ACCOUNT_ID")
 BUCKET_NAME = os.getenv("R2_BUCKET_NAME")
-ENDPOINT_URL = f"https://{ACCOUNT_ID}.r2.cloudflarestorage.com"
+ENDPOINT_URL = f"https://6a6842b1f08007f455a005a0b47656c2.r2.cloudflarestorage.com"
 
 # File details
 FILE_PATH = os.getenv("FILE_PATH", "file.bin")
