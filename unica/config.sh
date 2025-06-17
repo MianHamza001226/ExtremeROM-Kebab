@@ -18,7 +18,7 @@
 # UN1CA configuration file
 ROM_VERSION="0.0.1-nxt"
 ROM_VERSION+="-$(git rev-parse --short HEAD)"
-ROM_CODENAME="Nexus"
+ROM_CODENAME="Kebab"
 
 # Source ROM firmware
 case "$TARGET_SINGLE_SYSTEM_IMAGE" in
