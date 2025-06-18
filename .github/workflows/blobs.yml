@@ -85,7 +85,7 @@ jobs:
           node-version: 'latest'
 
       - name: Build dependencies
-        run: source ./buildenv.sh z3s
+        run: source ./buildenv.sh dm3q
 
       - name: Update prebuilt blobs
         run: |
