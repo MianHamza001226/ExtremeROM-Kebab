@@ -19,7 +19,7 @@
 
 # Camera
 SEC_FLOATING_FEATURE_CAMERA_CONFIG_VENDOR_LIB_INFO=food.samsung.v1,face_landmark.arcsoft.v2_1,scene_detection.samsung.v1,beauty.samsung.v4,facial_restoration.arcsoft.v1,facial_attribute.samsung.v1,human_tracking_hand.arcsoft.v4,fr_tracking.arcsoft.v1,smart_scan.samsung.v2,aimode.samsung.v2,aimfisp.samsung.v1,ai_clear_zoom.arcsoft.v1,super_resolution_raw.arcsoft.v2,aebhdr.arcsoft.v1,hybridhdr.arcsoft.v1,single_bokeh.samsung.v2,super_night.mpi.v2,swuwdc.arcsoft.v1,event_detection.samsung.v2,selfie_correction.samsung.v1,dual_bokeh.samsung.v1_1,image_codec.samsung.v1,pro_single_rgb.mpi.v1,image_enhance.arcsoft.v1,localtm.samsung.v1_1
-
+SEC_FLOATING_FEATURE_CAMERA_CONFIG_CAMID_TELE2=-1
 # Screen
 SEC_FLOATING_FEATURE_LCD_CONFIG_VIVIDNESS=0
 SEC_FLOATING_FEATURE_LCD_CONFIG_VIVIDPLUS=0
