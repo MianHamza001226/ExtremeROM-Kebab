@@ -16,7 +16,7 @@
 #
 
 # Device configuration file for Galaxy S20+ (snapdragon) (y2q)
-TARGET_NAME="Galaxy S20+ (Snapdragon)"
+TARGET_NAME="Samsung Galaxy S20+ (snapdragon)"
 TARGET_CODENAME="y2q"
 TARGET_ASSERT_MODEL=("SM-G986N")
 TARGET_PLATFORM="sm8250"
