@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2024 BlackMesa123
+# Copyright (C) 2025 BlackMesa123
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -27,9 +27,9 @@ TARGET_PRODUCT_FIRST_API_LEVEL=29
 TARGET_VNDK_VERSION=30
 TARGET_SINGLE_SYSTEM_IMAGE="qssi"
 TARGET_OS_FILE_SYSTEM="EXT4"
-TARGET_SUPER_PARTITION_SIZE=9437184000
+TARGET_SUPER_PARTITION_SIZE=0
 TARGET_SUPER_GROUP_NAME="group_basic"
-TARGET_SUPER_GROUP_SIZE=9432989696
+TARGET_SUPER_GROUP_SIZE=0
 TARGET_HAS_SYSTEM_EXT=false
 TARGET_INSTALL_METHOD=zip
 TARGET_BOOT_DEVICE_PATH="/dev/block/by-name"
