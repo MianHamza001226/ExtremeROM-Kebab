@@ -1,4 +1,4 @@
-name: Build ExtremeROM
+name: Build YacineROM
 
 on:
   workflow_dispatch:
@@ -10,7 +10,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        target: [dm1q, dm2q, dm3q]
+        target: [y2q]
 
     steps:
       - name: Checkout repo
@@ -102,6 +102,6 @@ jobs:
       - name: Upload ROM artifact
         uses: actions/upload-artifact@v4
         with:
-          name: ExtremeROM-${{ matrix.target }}
+          name: YacineROM-${{ matrix.target }}
           path: |
             out/*.zip
