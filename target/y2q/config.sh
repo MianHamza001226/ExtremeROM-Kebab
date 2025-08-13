@@ -15,11 +15,11 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-# Device configuration file for Galaxy S20+ (Exynos) (y2s)
-TARGET_NAME="Galaxy S20+ (qualcomm snapdragon)"
+# Device configuration file for Galaxy S20+ (snapdragon) (y2q)
+TARGET_NAME="Galaxy S20+ (Snapdragon)"
 TARGET_CODENAME="y2q"
 TARGET_ASSERT_MODEL=("SM-G986N")
-TARGET_PLATFORM="snapdragon865"
+TARGET_PLATFORM="sm8250"
 TARGET_FIRMWARE="SCG02/KOO/354696110624530"
 TARGET_EXTRA_FIRMWARES=("")
 TARGET_API_LEVEL=33
