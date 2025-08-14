@@ -205,7 +205,6 @@ GENERATE_LPMAKE_OPT()
     local HAS_SYSTEM_DLKM=false
 
     [ -f "$TMP_DIR/system.img" ] && HAS_SYSTEM=true
-    [ -f "$TMP_DIR/vendor.img" ] && HAS_VENDOR=true
     [ -f "$TMP_DIR/product.img" ] && HAS_PRODUCT=true
     [ -f "$TMP_DIR/system_ext.img" ] && HAS_SYSTEM_EXT=true
     [ -f "$TMP_DIR/odm.img" ] && HAS_ODM=true
