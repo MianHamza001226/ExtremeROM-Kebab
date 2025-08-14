@@ -26,7 +26,7 @@ trap 'rm -f $OUT_DIR/config.sh' ERR
 GEN_CONFIG_FILE()
 {
     if [ -f "$OUT_DIR/config.sh" ]; then
-        echo "config.sh already exists. Regenerating..."
+        echo "A config.sh file already exists. Regenerating..."
         rm -f "$OUT_DIR/config.sh"
     fi
 
@@ -35,6 +35,7 @@ GEN_CONFIG_FILE()
         echo "ROM_VERSION=\"${ROM_VERSION:?}\""
         echo "ROM_CODENAME=\"${ROM_CODENAME:?}\""
         echo "ROM_BUILD_TIMESTAMP=\"$(date '+%s')\""
+        echo "STATUS=\"${STATUS:?}\""
         echo "SOURCE_FIRMWARE=\"${SOURCE_FIRMWARE:?}\""
         if [ "${#SOURCE_EXTRA_FIRMWARES[@]}" -ge 1 ]; then
             echo "SOURCE_EXTRA_FIRMWARES=\"$( IFS=:; printf '%s' "${SOURCE_EXTRA_FIRMWARES[*]}" )\""
