@@ -54,10 +54,10 @@ PRINT_HEADER()
     echo    'ui_print(" ");'
     echo    'ui_print("****************************************");'
     echo -n 'ui_print("'
-    echo -n "ExtremeROM $ROM_CODENAME $ROM_VERSION for $TARGET_NAME"
+    echo -n "YacineROM $ROM_CODENAME $ROM_VERSION for $TARGET_NAME"
     echo    '");'
-    echo    'ui_print("ROM by @osrott61 @XDAforums");'
-    echo    'ui_print("Base by @ExtremeXT @XDAforums");'
+    echo    'ui_print("ROM by @YacineGTI and @Android-Artisan @XDAforums");'
+    echo    'ui_print("Base by @ExtremeXT and @osrott61-gh @XDAforums");'
     echo    'ui_print("Build system coded by salvo_giangri @XDAforums");'
     echo    'ui_print("****************************************");'
     echo -n 'ui_print("'
@@ -558,7 +558,7 @@ GENERATE_BUILD_INFO()
     true
 }
 
-ZIP_FILE_NAME="ExtremeROM_${ROM_CODENAME}_${ROM_VERSION}_$(date +%Y%m%d)_${TARGET_CODENAME}.zip"
+ZIP_FILE_NAME="YacineROM_${ROM_CODENAME}_${ROM_VERSION}-${TARGET_CODENAME}.zip"
 # ]
 
 echo "Set up tmp dir"
