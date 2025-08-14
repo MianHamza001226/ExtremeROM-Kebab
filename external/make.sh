@@ -68,7 +68,7 @@ BUILD()
     local DIR="$1"; shift
     local CMDS=("$@")
 
-    echo "- Building $NAME..."
+    echo "- Building: $NAME..."
 
     cd "$DIR"
     for CMD in "${CMDS[@]}"; do
