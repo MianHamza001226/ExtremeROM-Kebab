@@ -16,9 +16,9 @@
 #
 
 # UN1CA configuration file
-ROM_VERSION="0.0.1"
+ROM_VERSION="0.0.1-rc1"
 ROM_VERSION+=""
-ROM_CODENAME="Kebab"
+ROM_CODENAME="Obsidian"
 STATUS="BETA"
 
 # Source ROM firmware
