@@ -54,7 +54,7 @@ PRINT_HEADER()
     echo    'ui_print(" ");'
     echo    'ui_print("****************************************");'
     echo -n 'ui_print("'
-    echo -n "YacineROM $ROM_CODENAME $ROM_VERSION for $TARGET_NAME"
+    echo -n "YacineROM $ROM_CODENAME V$ROM_VERSION for $TARGET_NAME"
     echo    '");'
     echo    'ui_print("ROM by @YacineGTI and @Android-Artisan @XDAforums");'
     echo    'ui_print("Base by @ExtremeXT and @osrott61-gh @XDAforums");'
