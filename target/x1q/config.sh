@@ -15,7 +15,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-# Device configuration file for Galaxy S20 (snapdragon) (y2q)
+# Device configuration file for Galaxy S20 (snapdragon) (x1q)
 TARGET_NAME="Samsung Galaxy S20 (snapdragon)"
 TARGET_CODENAME="x1q"
 TARGET_ASSERT_MODEL=("SM-G981N")
@@ -26,7 +26,7 @@ TARGET_API_LEVEL=33
 TARGET_PRODUCT_FIRST_API_LEVEL=29
 TARGET_VNDK_VERSION=30
 TARGET_SINGLE_SYSTEM_IMAGE="qssi"
-TARGET_OS_FILE_SYSTEM="EXT4"
+TARGET_OS_FILE_SYSTEM="ext4"
 TARGET_SUPER_PARTITION_SIZE=10292822016
 TARGET_SUPER_GROUP_NAME="group_basic"
 TARGET_SUPER_GROUP_SIZE=10288627712
