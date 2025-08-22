@@ -1,35 +1,31 @@
-name: Build YacineROM
+name: Build YacineROM (y2q)
 
 on:
   workflow_dispatch:
 
 jobs:
-  build:
+  y2q:
     runs-on: ubuntu-24.04
-
-    strategy:
-      fail-fast: false
-      matrix:
-        target: [r9q, x1q]
 
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
-          submodules: 'recursive'
+          submodules: recursive
 
-      - name: Free up space
+      # Free up runner disk space
+      - name: Free disk space (1/3)
         run: |
-          sudo apt-get remove -y '^aspnetcore-.*' || echo "::warning::The command [sudo apt-get remove -y '^aspnetcore-.*'] failed to complete successfully. Proceeding..."
-          sudo apt-get remove -y '^dotnet-.*' --fix-missing || echo "::warning::The command [sudo apt-get remove -y '^dotnet-.*' --fix-missing] failed to complete successfully. Proceeding..."
-          sudo apt-get remove -y 'php.*' --fix-missing || echo "::warning::The command [sudo apt-get remove -y 'php.*' --fix-missing] failed to complete successfully. Proceeding..."
-          sudo apt-get remove -y '^mongodb-.*' --fix-missing || echo "::warning::The command [sudo apt-get remove -y '^mongodb-.*' --fix-missing] failed to complete successfully. Proceeding..."
-          sudo apt-get remove -y '^mysql-.*' --fix-missing || echo "::warning::The command [sudo apt-get remove -y '^mysql-.*' --fix-missing] failed to complete successfully. Proceeding..."
-          sudo apt-get remove -y azure-cli google-chrome-stable firefox powershell libgl1-mesa-dri --fix-missing || echo "::warning::The command [sudo apt-get remove -y azure-cli google-chrome-stable firefox powershell libgl1-mesa-dri --fix-missing] failed to complete successfully. Proceeding..."
-          sudo apt-get remove -y google-cloud-sdk --fix-missing || echo "::debug::The command [sudo apt-get remove -y google-cloud-sdk --fix-missing] failed to complete successfully. Proceeding..."
-          sudo apt-get remove -y google-cloud-cli --fix-missing || echo "::debug::The command [sudo apt-get remove -y google-cloud-cli --fix-missing] failed to complete successfully. Proceeding..."
-          sudo apt-get autoremove -y || echo "::warning::The command [sudo apt-get autoremove -y] failed to complete successfully. Proceeding..."
-          sudo apt-get clean || echo "::warning::The command [sudo apt-get clean] failed to complete successfully. Proceeding..."
+          sudo apt-get remove -y '^aspnetcore-.*' || true
+          sudo apt-get remove -y '^dotnet-.*' --fix-missing || true
+          sudo apt-get remove -y 'php.*' --fix-missing || true
+          sudo apt-get remove -y '^mongodb-.*' --fix-missing || true
+          sudo apt-get remove -y '^mysql-.*' --fix-missing || true
+          sudo apt-get remove -y azure-cli google-chrome-stable firefox powershell libgl1-mesa-dri --fix-missing || true
+          sudo apt-get remove -y google-cloud-sdk --fix-missing || true
+          sudo apt-get remove -y google-cloud-cli --fix-missing || true
+          sudo apt-get autoremove -y || true
+          sudo apt-get clean || true
 
       - name: Free disk space (2/3)
         uses: jlumbroso/free-disk-space@main
@@ -48,8 +44,9 @@ jobs:
             jq attr ccache clang ffmpeg golang \
             libbrotli-dev libgtest-dev libprotobuf-dev libunwind-dev libpcre2-dev \
             libzstd-dev linux-modules-extra-$(uname -r) lld protobuf-compiler webp \
-            curl xxd patchelf flex bison libarchive-tools build-essential
-          sudo modprobe erofs f2fs
+            curl xxd patchelf flex bison libarchive-tools build-essential p7zip-full tar
+          sudo modprobe erofs || true
+          sudo modprobe f2fs || true
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
@@ -63,45 +60,72 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 'latest'
+          node-version: '20'
 
-      - name: Build dependencies
-        run: source ./buildenv.sh ${{ matrix.target }}
-
-      - name: Download source firmware
+      # Initialize env for y2q from your repo's buildenv.sh
+      - name: Init env (y2q)
+        shell: bash
         run: |
-          source ./buildenv.sh ${{ matrix.target }}
+          set -e
+          source ./buildenv.sh y2q
+          echo "DEVICE=$DEVICE"
+          echo "MODEL=$MODEL"
+          echo "SOURCE_FIRMWARE=$SOURCE_FIRMWARE"
+          echo "TARGET_FIRMWARE=$TARGET_FIRMWARE"
+          echo "ODIN_DIR=$ODIN_DIR"
+
+      # Donor firmware (source) -> usually S23/S22 base if you port that UI
+      - name: Download source firmware (donor)
+        shell: bash
+        run: |
+          set -e
+          source ./buildenv.sh y2q
           TARGET_FIRMWARE="$SOURCE_FIRMWARE" ./scripts/download_fw.sh --force
 
-      - name: Extract source firmware
+      - name: Extract source firmware (donor)
+        shell: bash
         run: |
-          source ./buildenv.sh ${{ matrix.target }}
+          set -e
+          source ./buildenv.sh y2q
           TARGET_FIRMWARE="$SOURCE_FIRMWARE" ./scripts/extract_fw.sh --force
 
-      - name: Download target firmware
+      # Device firmware (target) -> SCG02 stock
+      - name: Download target firmware (device)
+        shell: bash
         run: |
-          source ./buildenv.sh ${{ matrix.target }}
+          set -e
+          source ./buildenv.sh y2q
           SOURCE_FIRMWARE="$TARGET_FIRMWARE" ./scripts/download_fw.sh --force
 
-      - name: Extract target firmware
+      - name: Extract target firmware (device)
+        shell: bash
         run: |
-          source ./buildenv.sh ${{ matrix.target }}
+          set -e
+          source ./buildenv.sh y2q
           SOURCE_FIRMWARE="$TARGET_FIRMWARE" ./scripts/extract_fw.sh --force
 
-      - name: Cleanup out/odin and leave placeholder
+      # Clean ODIN output dir
+      - name: Cleanup out/odin
+        shell: bash
         run: |
-          rm -rf out/odin/SM-S938B_EUX
-          mkdir -p out/odin/SM-S938B_EUX
-          touch out/odin/SM-S938B_EUX/.downloaded
+          set -e
+          source ./buildenv.sh y2q
+          rm -rf "out/odin/${ODIN_DIR}" || true
+          mkdir -p "out/odin/${ODIN_DIR}"
+          touch "out/odin/${ODIN_DIR}/.downloaded"
 
-      - name: Build ROM
+      # Build the ROM; most trees produce Odin by default (tar.md5)
+      - name: Build ROM (Odin tar.md5)
+        shell: bash
         run: |
-          source ./buildenv.sh ${{ matrix.target }}
+          set -e
+          source ./buildenv.sh y2q
           ./scripts/make_rom.sh --force
 
       - name: Upload ROM artifact
         uses: actions/upload-artifact@v4
         with:
-          name: YacineROM-tar-${{ matrix.target }}
+          name: YacineROM-y2q
           path: |
             out/*.tar.md5
+            out/*.zip
