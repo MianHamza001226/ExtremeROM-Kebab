@@ -16,7 +16,7 @@
 #
 
 # UN1CA configuration file
-ROM_VERSION="0.0.1-rc1"
+ROM_VERSION="0.0.2-rc1"
 ROM_VERSION+=""
 ROM_CODENAME="Obsidian"
 STATUS="BETA"
