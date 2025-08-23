@@ -17,7 +17,7 @@
 
 # Device configuration file for Galaxy Note20 Ultra (snapdragon) (c2q)
 TARGET_NAME="Samsung Galaxy Note20 Ultra (snapdragon)"
-TARGET_CODENAME="c1q"
+TARGET_CODENAME="c2q"
 TARGET_ASSERT_MODEL=("SM-N986N" "SM-N986U" "SM-N986W" "SM-N9860" "SM-N9868")
 TARGET_PLATFORM="sm8250"
 TARGET_FIRMWARE="SM-N986N/KOO/355857115360889"
