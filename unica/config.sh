@@ -16,7 +16,7 @@
 #
 
 # UN1CA configuration file
-ROM_VERSION="0.0.2-rc1"
+ROM_VERSION="1.0"
 ROM_VERSION+=""
 ROM_CODENAME="Obsidian"
 STATUS="BETA"
@@ -24,11 +24,11 @@ STATUS="BETA"
 # Source ROM firmware
 case "$TARGET_SINGLE_SYSTEM_IMAGE" in
     "qssi")
-        # Galaxy S25 Ultra (One UI 7)
+        # Galaxy S25 Ultra (One UI 8)
         SOURCE_CODENAME="pa3q"
         SOURCE_FIRMWARE="SM-S938B/EUX/356597450035295"
         SOURCE_EXTRA_FIRMWARES=()
-        SOURCE_API_LEVEL=35
+        SOURCE_API_LEVEL=36
         SOURCE_PRODUCT_FIRST_API_LEVEL=35
         SOURCE_VNDK_VERSION="none"
         SOURCE_HAS_SYSTEM_EXT=true
